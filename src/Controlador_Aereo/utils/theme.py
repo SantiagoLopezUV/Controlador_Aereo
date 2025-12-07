@@ -6,9 +6,10 @@ Use these constants across views to maintain consistent styling.
 # -----------------------------
 # Colors
 # -----------------------------
-APP_BG = "#858585"           # Main background color
+APP_BG = "#C00808"           # Main background color
 CARD_BG = "#FFFFFF"          # Card or panel background
 PRIMARY_COLOR = "#1A73E8"    # Highlight / primary action
+FLIGHT_COLOR = "#02CCFF"    # Flight representation color
 ACCENT_COLOR = "#0F4C81"     # Darker accent
 TEXT_COLOR = "#000000"       # Standard text
 TEXT_LIGHT = "#FFFFFF"       # Light text (titles over dark bg)
