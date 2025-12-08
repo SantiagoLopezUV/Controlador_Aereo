@@ -78,6 +78,18 @@ El objetivo es diseñar un controlador aéreo que detecte las posibles colisione
 
 ## ▶️ Cómo ejecutar el proyecto
 
+Este proyecto está desarrollado en Python e incluye:
+- Interfaz gráfica con Tkinter
+- Uso de random
+- Pruebas automatizadas con Pytest
+- Integración continua con GitHub Actions (python-ci.yml)
+
+
+### PRE-REQUISITOS
+------------------
+- Tener instalado Python 3.11 o superior.
+- (Opcional) Tener Git para clonar el repositorio.
+
 1. Crear entorno virtual
 
     ```bash
@@ -96,6 +108,8 @@ El objetivo es diseñar un controlador aéreo que detecte las posibles colisione
     ```
 
 4. Ejecutar la Aplicación
+
+    Dentro de la carpeta del proyecto
     ```bash
     python src/controlador_aereo/main.py
     ```
