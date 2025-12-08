@@ -1,5 +1,3 @@
-#from model.Coordinate import Coordinate
-#from model.Aircraft import  Aircraft
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
@@ -11,7 +9,6 @@ def main():
     root = Tk()
     root.title("Air Traffic Controller System")
     root.resizable(False, False)
-    # Try to set an application icon if available; ignore if missing
     try:
         root.iconbitmap('src/Controlador_Aereo/assets/airplane_icon.ico')
     except Exception:
@@ -19,24 +16,17 @@ def main():
 
     frame_style = 'TFrame'
     style = ttk.Style()
-    # Use white card background for app
     style.configure(frame_style, background=CARD_BG)
 
-    # Overall background white
     root.configure(background=CARD_BG)
 
-    # Simplified layout: single centered container with a dynamic frame
     container = ttk.Frame(root, padding=20, style=frame_style)
     container.pack(fill='both', expand=True)
 
-    # create a centered card for dynamic content
-    # Fixed-size card for dynamic content (centered) - match flightSky canvas width/height
     dynamic_frame = ttk.Frame(container, style=frame_style, padding=10, width=760, height=420)
     dynamic_frame.pack(expand=True)
-    # Prevent children from shrinking the frame
     dynamic_frame.pack_propagate(False)
 
-    # Call the template handler to populate dynamic_frame
     templ_handler('initial', dynamic_frame)
     root.mainloop()
 

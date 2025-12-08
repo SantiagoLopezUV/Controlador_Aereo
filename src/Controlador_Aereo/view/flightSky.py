@@ -10,14 +10,14 @@ class sky_template(ttk.Frame):
     def __init__(self, dynamic_frame):
         super().__init__(dynamic_frame)
         self.dynamic_frame = dynamic_frame
-        # Fix size to match the dynamic frame and prevent propagation
+        
         try:
             self.config(width=800, height=480)
             self.grid_propagate(False)
         except Exception:
             pass
         self.build_view()
-        # Automatically draw when the view is created so no separate "Refrescar" is required
+        
         self.draw_aircrafts()
 
     def build_view(self):
@@ -27,7 +27,6 @@ class sky_template(ttk.Frame):
         btn_back = ttk.Button(self, text="Volver", command=self.back)
         btn_back.grid(row=0, column=0, sticky="w", padx=PADDING, pady=(PADDING, 2))
 
-        # Search button to compute closest pair
         btn_search = ttk.Button(self, text="Calcular par más cercano", command=self.calculate)
         btn_search.grid(row=0, column=2, sticky="e", padx=PADDING, pady=(PADDING, 2))
 
@@ -41,7 +40,6 @@ class sky_template(ttk.Frame):
         viewHandler.templ_handler('initial', self.master)
 
     def draw_aircrafts(self):
-        # Clear canvas
         self.canvas.delete('all')
 
         aircrafts = viewHandler.GLOBAL_CONTROLLER.aircraftsList
@@ -49,7 +47,6 @@ class sky_template(ttk.Frame):
             self.result_label.config(text="No hay aviones para mostrar")
             return
 
-        # Assume coordinates are 0..100 and scale to canvas
         w = int(self.canvas['width'])
         h = int(self.canvas['height'])
 
@@ -72,7 +69,6 @@ class sky_template(ttk.Frame):
             messagebox.showinfo("Resultado", "Se necesitan al menos 2 aviones para calcular la distancia mínima.")
             return
 
-        # Prepare sorted lists
         ax = Coordinate.sorted_arcrafts_by_x(aircrafts)
         ay = Coordinate.sorted_aircrafts_by_y(aircrafts)
 
@@ -86,6 +82,6 @@ class sky_template(ttk.Frame):
         a2 = result.aircraft2
         dist = result.distance
 
-        text = f"Distancia mínima: {dist:.2f} — AV{a1.numPlane} y AV{a2.numPlane}"
+        text = f"¡Aviones Cercanos! AV{a1.numPlane} y AV{a2.numPlane} - Distancia: {dist:.2f}"
         self.result_label.config(text=text)
         messagebox.showinfo("Resultado", text)

@@ -17,18 +17,27 @@ controlador-aereo/
 │       ├── main.py
 │       ├── algorithms/
 │       │   ├── __init__.py
-│       │   └── nearestPointsPair.py
+│       │   └── code.py
+|       ├── controller/
+|       |   ├── __init__.py
+|       |   └── ControllerAircraft.py
 │       ├── model/
 │       │   ├── __init__.py
-│       │   └── aircraft.py
+│       │   ├── Aircraft.py
+|       |   ├── ClosestPairResult.py
+|       |   └── Coordinate.py
+|       ├── tests/
+|       |   ├── test_integration.py
+│       |   └── test_unit.py
 │       ├── utils/
 │       │   ├── __init__.py
-│       │   └── distancePoints.py
-│       └── views/
+|       |   ├── theme.py
+│       │   └── viewHandler.py
+│       └── view/
 │           ├── __init__.py
-│           └── map.py
-├── tests/
-│   └── test_main.py
+│           ├── flightSky.py
+│           └── initPanel.py
+|
 ├── .gitignore
 ├── requirements.txt
 ├── pyproject.toml
@@ -63,7 +72,7 @@ Visual Studio Code se usa como editor principal gracias a:
 El objetivo es diseñar un controlador aéreo que detecte las posibles colisiones aereas.
 - El sistema va a procesar una lista de aeronaves (aviones) con posiciones en 2D.
 - Debe encontrar las dos aeronaves mas cercanas entre si.
-- Detectar posibles riesgos de colisión según una distancia mínima.
+- Detectar posibles riesgos de colisión, encontrando la distancia mínima.
 - Implementar la solución con Dividir y Vencer.
 
 

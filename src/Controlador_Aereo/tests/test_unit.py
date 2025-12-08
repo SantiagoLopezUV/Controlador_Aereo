@@ -1,6 +1,3 @@
-"""
-Unit tests (pytest) for low-level components: Coordinate and Aircraft utilities.
-"""
 from Controlador_Aereo.model.Coordinate import Coordinate
 from Controlador_Aereo.model.Aircraft import Aircraft
 
@@ -26,7 +23,6 @@ def test_distance_between_aircraft_function():
 
 
 def test_sorting_helpers_and_show_methods(capfd):
-    # prepare aircrafts
     a1 = Aircraft(1, Coordinate(50, 30))
     a2 = Aircraft(2, Coordinate(10, 80))
     a3 = Aircraft(3, Coordinate(40, 10))
@@ -38,7 +34,6 @@ def test_sorting_helpers_and_show_methods(capfd):
     sorted_y = Coordinate.sorted_aircrafts_by_y(arr)
     assert [a.numPlane for a in sorted_y] == [3, 1, 2]
 
-    # show methods should not raise; capture output
     a1.showAircraft()
     c = Coordinate(1, 2)
     c.showCoordinate()

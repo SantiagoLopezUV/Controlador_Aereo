@@ -5,30 +5,11 @@ from Controlador_Aereo.utils.theme import (TITLE_FONT_MAIN, APP_BG, TEXT_COLOR, 
                                             PADDING)
 from Controlador_Aereo.utils import viewHandler
 
-"""
-Initial view: provides an Entry to request a number of aircraft
-and a button to generate them using the shared controller.
-"""
-
-"""
-Imports:
-- 'ttk' module from the 'tkinter' library for creating the Graphical
-User Interface (GUI).
-- 'templ_handler' method from the 'template_handler' module.
-
-Purpose:
-- Generates the primary template asigned to the dynamic_frame.
-- Utilizes 'ttk' for creating graphical elements in the GUI.
-- Implements 'templ_handler' for handling the templates in the application.
-"""
-
 class ViewInitial(ttk.Frame):
     def __init__(self, dynamic_frame):
         super().__init__(dynamic_frame)
-        # Use the shared global controller from viewHandler
         self.controller = viewHandler.GLOBAL_CONTROLLER
         self.dynamic_frame = dynamic_frame
-        # Fix size to match sky view and prevent propagation
         try:
             self.config(width=760, height=420)
             self.grid_propagate(False)
@@ -37,8 +18,6 @@ class ViewInitial(ttk.Frame):
         self.build_view()
 
     def build_view(self):
-        """Creates the initial view for the application."""
-        # Configure grid to center content
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
 
@@ -80,10 +59,10 @@ class ViewInitial(ttk.Frame):
         """Handle generate button: read number, create aircraft and switch view."""
         try:
             n = int(self.entry_num_aircraft.get())
-            if n <= 0:
+            x = 50
+            if n <= 0 or n > x:
                 raise ValueError()
         except Exception:
-            # invalid input: ignore or show a minimal feedback
             return
         
         self.controller.aircraftsList.clear()
