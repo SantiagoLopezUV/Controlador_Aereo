@@ -18,6 +18,7 @@ TEXT_LIGHT = "#FFFFFF"       # Light text (titles over dark bg)
 # Fonts
 # -----------------------------
 TITLE_FONT = ("Helvetica", 20)
+TITLE_FONT_MAIN = ("Helvetica", 36, "bold")
 SUBTITLE_FONT = ("Helvetica", 16)
 NORMAL_FONT = ("Helvetica", 12)
 SMALL_FONT = ("Helvetica", 10)
